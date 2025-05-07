@@ -22,11 +22,11 @@ function ChatContainer() {
     
   }, [selectedUser?._id, getMessages,listenToMessages,unListenToMessage]);
 
-  useEffect(()=>{
-    if(messageEndRef.current && messages){
-      messageEndRef.current.scrollIntoView({behavior:"smooth"});
-    }
-  },[messages])
+  // useEffect(()=>{
+  //   if(messageEndRef.current && messages){
+  //     messageEndRef.current.scrollIntoView({behavior:"smooth"});
+  //   }
+  // },[messages])
 
   
   if (isMessagesLoading) {

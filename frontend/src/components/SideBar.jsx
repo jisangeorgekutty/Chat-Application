@@ -6,9 +6,9 @@ import { useAuthStore } from '../store/useAuthStore';
 
 function SideBar() {
     const { isUsersLoading, users, selectedUser, getUsers, setSelectedUser } = useMessageStore();
-    const {onlineUsers} = useAuthStore();
+    const { onlineUsers } = useAuthStore();
     console.log(users);
-    
+
     useEffect(() => {
         getUsers();
     }, [getUsers]);
@@ -25,16 +25,13 @@ function SideBar() {
                     </span>
                 </div>
 
-                <div className="overflow-y-auto w-full py-3">
+                <div className="w-full py-3 overflow-y-auto h-[calc(100vh-100px)] pr-2">
                     {users.map((user) => (
                         <button
                             key={user._id}
                             onClick={() => setSelectedUser(user)}
-                            className={`
-              w-full p-3 flex items-center gap-3
-              hover:bg-base-300 transition-colors
-              ${selectedUser?._id === user._id ? "bg-base-300 ring-1 ring-base-300" : ""}
-            `}
+                            className={`w-full p-3 flex items-center gap-3 hover:bg-base-300 transition-colors ${selectedUser?._id === user._id ? "bg-base-300 ring-1 ring-base-300" : ""
+                                }`}
                         >
                             <div className="relative mx-auto lg:mx-0">
                                 <img
@@ -42,14 +39,10 @@ function SideBar() {
                                     className="size-12 object-cover rounded-full"
                                 />
                                 {onlineUsers.includes(user._id) && (
-                                    <span
-                                        className="absolute bottom-0 right-0 size-3 bg-green-500 
-                  rounded-full ring-2 ring-zinc-900"
-                                    />
+                                    <span className="absolute bottom-0 right-0 size-3 bg-green-500 rounded-full ring-2 ring-zinc-900" />
                                 )}
                             </div>
 
-                           
                             <div className="hidden lg:block text-left min-w-0">
                                 <div className="font-medium truncate">{user.fullName}</div>
                                 <div className="text-sm text-zinc-400">
@@ -59,6 +52,7 @@ function SideBar() {
                         </button>
                     ))}
                 </div>
+
             </div>
         </aside>
     )

@@ -17,7 +17,7 @@ function NavBar() {
               <div className="size-9 rounded-lg bg-blue-500/10 flex items-center justify-center">
                 <MessageSquare className="w-5 h-5 text-primary" />
               </div>
-              <h1 className="text-lg font-bold">Chatty</h1>
+              <h1 className="text-lg font-bold">ChatMate</h1>
             </Link>
           </div>
 
